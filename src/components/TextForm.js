@@ -77,9 +77,9 @@ const TextForm = () => {
                     fontWeight:fonWeight}} value={text} onChange={handleChange} id="myBox" rows="8"></textarea>
             </div>
 
-            <div className="col-md-4" >
+            <div className="col-md-4">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 mb-2">
                     <label for="size" class="form-label">Font Style:</label>
                         <select className="input-group custom-select mb-2" onChange={(e)=>{
                             const selectedFont = e.target.value;
@@ -90,63 +90,80 @@ const TextForm = () => {
                             <option value="Zen Antique" >Zen Antique</option>
                             <option value="Zen Antique" >Noto Sans</option>
                             <option value="Oswald" >Oswald</option>
-                            
                         </select>
+                        
                     </div>
-                    <div className="col-12">
+                    <div className="d-flex mb-3">
+                        <div className="col">
                         <label for="size" class="form-label">Font Weight:</label>
-                        <select className=" input-group custom-select mb-3" onChange={(e)=>{
+                        <select className=" input-group custom-select mb-2" onChange={(e)=>{
                             const selectedWeight = e.target.value;
                             setFonWeight(selectedWeight)
                         }} placeholder="Font Weight">
                             <option value="bold" >Bold</option>
                             <option value="normal" >Normal</option>  
                         </select>
+                        
+                        </div>
+                          
+                    </div>
 
-                        {/* Text Size */}
-                        <div >
-                        <label for="size" class="form-label">Font Size: 
+                    <div className=" d-flex mb-3">
+
+                        <div className="col">
+                            {/* Text Size */}
+                            <label for="size" class="form-label">Font Size: </label>
                             <a  onClick={() => setTextSize(textSize-1)} className="btn btn-primary" title="Decrement">-</a>
                             <input type="text" className="text-center" name="size" value={textSize} onChange={handleTextSize} placeholder="Change Text Size In px"/>
                             <a  onClick={() => setTextSize(textSize+1)} title="Increment" className="btn btn-primary">+</a>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className=" m-2">
+                        </div>  
+                        {/* <div className="col-md-6">
                         <label for="size" class="form-label">Per: 
-                        {/* <a  onClick={() => setTextSize(textSize-1)} className="btn btn-primary" title="Decrement">-</a> */}
+                        <a  onClick={() => setTextSize(textSize-1)} className="btn btn-primary" title="Decrement">-</a> 
                             
                         <input type="text"  name="size" value={textSizePer} onChange={handleTextSizePer} placeholder="Change Text Size In %"/>
-                        {/* <a  onClick={() => setTextSize(textSize+1)} title="Increment" className="btn btn-primary">+</a> */}
+                        <a  onClick={() => setTextSize(textSize+1)} title="Increment" className="btn btn-primary">+</a>
                         </label>
+                        </div> */}
                     </div>
 
                 </div>
             
 
                 
-                <div className="row">
-                    <div className="col">
-                    <button className="btn btn-sm btn-primary mx-1 my-1" onClick={handleTextLeft} >
-                    <i class="fas fa-align-left"></i>
-                    </button>
-                    <button className="btn btn-sm btn-primary mx-1 my-1" onClick={handleTextCenter}>
-                    <i class="fas fa-align-center"></i>
-                    </button>
-                    <button className="btn btn-sm btn-primary mx-1 my-1" onClick={handleTextRight}>
-                    <i class="fas fa-align-right"></i>
-                    </button>
-                    <button className="btn btn-sm btn-primary mx-1 my-1" onClick={handleTextJustify}>
-                    <i class="fas fa-align-justify"></i>
-                    </button>
-                   
+                <div className="d-flex mb-3">
+                        <div className="col-md-3">
+                        <button className="btn btn-sm btn-info px-4" onClick={handleTextLeft} >
+                        <i class="fas fa-align-left"></i>
+                        </button>
+                        </div>
+                        <div className="col-md-3">
+                        <button className="btn btn-sm btn-warning px-4" onClick={handleTextCenter}>
+                        <i class="fas fa-align-center"></i>
+                        </button>
+                        </div>
+                        <div className="col-md-3">
+                        <button className="btn btn-sm btn-secondary px-4" onClick={handleTextRight}>
+                        <i class="fas fa-align-right"></i>
+                        </button>
+                        </div>
+                        <div className="col-md-3">
+                        <button className="btn btn-sm btn-info px-4" onClick={handleTextJustify}>
+                        <i class="fas fa-align-justify"></i>
+                        </button>
+                        </div>
+                </div>
 
-                    <button disabled={text.length=== 0}className="btn btn-sm btn-primary mx-1 my-1" onClick={handlePuncCount}>Punctuation: {punctuate}</button>
-                    <button disabled={text.length=== 0}className="btn btn-sm btn-primary my-1" onClick={handleFUpClick}>First Letter Uppercase</button>
-
-                    <button disabled={text.length=== 0}className="btn btn-sm btn-primary mx-1 my-1" onClick={handleExtraSpace}>Remove Extra Space</button>
-                    </div>
+                <div className="d-flex">
+                        <div className="col-md-4">
+                        <button disabled={text.length=== 0} className="btn btn-sm btn-primary mx-1 my-1" onClick={handlePuncCount}>Punctuation: {punctuate}</button>
+                        </div>
+                        <div className="col-md-4">
+                        <button className="btn btn-sm btn-primary my-1" onClick={handleFUpClick}>First Letter Uppercase</button>
+                        </div>
+                        <div className="col-md-4"> 
+                        <button className="btn btn-sm btn-primary mx-1 my-1" onClick={handleExtraSpace}>Remove Extra Space</button>
+                        </div>
                 </div>
                 
             </div>
