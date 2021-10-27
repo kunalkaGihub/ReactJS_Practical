@@ -1,15 +1,18 @@
 import React, {useState} from 'react'
 
-const TextForm = () => {
+const TextForm = (props) => {
+    const { handleTextRight, alignText, handleTextCenter, handleTextLeft } = props;
     const [text, setText] = useState("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ")
 
-    const [alignText, setAlignText] = useState("left")
+    //const [alignText, setAlignText] = useState("left")
     const [justifyText, setJustifyText] = useState("")
     const [textSize, setTextSize] = useState(20)
     const [textSizePer, settextSizePer] = useState()
     const [font, setFont] = useState("Open Sans")
     const [fonWeight, setFonWeight] = useState("bold")
 
+    
+    
     const handleChange= (event) =>{
         setText(event.target.value)
     }
@@ -18,15 +21,7 @@ const TextForm = () => {
         setTextSize(event.target.value)
     }
 
-    const handleTextRight = () =>{
-        setAlignText("end")
-    }
-    const handleTextLeft = () =>{
-        setAlignText("left")
-    }
-    const handleTextCenter = () =>{
-        setAlignText("center")
-    }
+    
     const handleTextJustify = () =>{
         setJustifyText("center")
     }
@@ -132,8 +127,8 @@ const TextForm = () => {
 
                 
                 <div className="d-flex mb-3">
-                        <div className="col-md-3">
-                        <button className="btn btn-sm btn-info px-4" onClick={handleTextLeft} >
+                       <div className="col-md-3">
+                         <button className="btn btn-sm btn-info px-4" onClick={handleTextLeft} >
                         <i class="fas fa-align-left"></i>
                         </button>
                         </div>
